@@ -54,12 +54,14 @@ for file in ${targetdir}/*.${targetext}; do
  echo ${checksum}" "${file} >> ${encodedlog}
  echo ${checksum_dest}" "${destfile} >> ${encodedlog}
 
+ echo "encode result"
+ echo `ls -l "${file}"`
+ echo `ls -l "${destfile}"`
+
  if [ 0 = ${keepfile} ]; then
   echo "delete original file:${file}"
   rm "${file}"
  fi
-
- echo "encode successful. ${file} to ${destfile}"
 
 done
 

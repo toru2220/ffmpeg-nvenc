@@ -1,7 +1,7 @@
 #!/bin/sh
 
 keepfile=${FFMPEG_KEEP_FILE:-1}
-encodedlog=${FFMPEG_ENCODED_LOG:-"/conf/encoded.log"}
+encodedlog=${FFMPEG_ENCODED_LOG:-"/conf"}
 
 targetext1=${FFMPEG_TARGET_EXT_1:-mp4}
 maxheight1=${FFMPEG_MAX_HEIGHT_1:-720}
@@ -27,15 +27,15 @@ do
 
  echo "encoded start[1]: ${keepfile} ${targetdir1} ${targetext1} ${outputdir1} ${encodedlog} ${maxheight1} ${maxbitrate1} ${encodeopt1}"
 
- ./encode.sh ${keepfile} /watch1 ${targetext1} /output1 ${encodedlog} ${maxheight1} ${maxbitrate1} "${encodeopt1}"
+ ./encode.sh ${keepfile} /watch1 ${targetext1} /output1 "${encodedlog}/encoded.log" ${maxheight1} ${maxbitrate1} "${encodeopt1}"
 
  echo "encoded start[2]: ${keepfile} ${targetdir2} ${targetext2} ${outputdir2} ${encodedlog} ${maxheight2} ${maxbitrate2} ${encodeopt2}"
 
- ./encode.sh ${keepfile} /watch2 ${targetext2} /output2 ${encodedlog} ${maxheight2} ${maxbitrate2} "${encodeopt2}"
+ ./encode.sh ${keepfile} /watch2 ${targetext2} /output2 "${encodedlog}/encoded.log" ${maxheight2} ${maxbitrate2} "${encodeopt2}"
 
  echo "encoded start[3]: ${keepfile} ${targetdir3} ${targetext3} ${outputdir3} ${encodedlog} ${maxheight3} ${maxbitrate3} ${encodeopt3}"
 
- ./encode.sh ${keepfile} /watch3 ${targetext3} /output3 ${encodedlog} ${maxheight3} ${maxbitrate3} "${encodeopt3}"
+ ./encode.sh ${keepfile} /watch3 ${targetext3} /output3 "${encodedlog}/encoded.log" ${maxheight3} ${maxbitrate3} "${encodeopt3}"
 
  echo "encode finished. wait 60 seconds..."
  sleep 60
